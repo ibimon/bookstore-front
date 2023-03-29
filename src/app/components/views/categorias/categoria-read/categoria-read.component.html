@@ -3,7 +3,9 @@
         <h1>Categorias</h1>
     </div>
 
-    <table mat-table [dataSource]="categorias" class="mat-elevation-z8">
+    <button class="mat-elevation-z8" mat-stroked-button color="primary">Nova Categoria</button>
+
+    <table mat-table [dataSource]="categorias" class="mat-elevation-z8" style="width: 100%;">
         <!-- Position Column -->
         <ng-container matColumnDef="id">
           <th mat-header-cell *matHeaderCellDef> Identificador </th>
@@ -21,11 +23,29 @@
           <th mat-header-cell *matHeaderCellDef> Descrição </th>
           <td mat-cell *matCellDef="let row"> {{ row.descricao }} </td>
         </ng-container>
+
+         <!-- Livros Column -->
+         <ng-container matColumnDef="livros">
+          <th mat-header-cell *matHeaderCellDef> Livros </th>
+          <td mat-cell *matCellDef="let row"> 
+            <a href="#" class="livros">
+              <i class="material-icons">book</i>
+            </a>  
+          </td>
+        </ng-container>
       
         <!-- Symbol Column -->
         <ng-container matColumnDef="acoes">
           <th mat-header-cell *matHeaderCellDef> Ações </th>
-          <td mat-cell *matCellDef="let row">  </td>
+          <td  class="mat-header" mat-cell *matCellDef="let row"> 
+            <a href="#" class="edit">
+              <i class="material-icons">edit</i>
+            </a>
+            <a href="#" class="delete">
+              <i class="material-icons">delete</i>
+            </a>
+           
+          </td>
         </ng-container>
       
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
