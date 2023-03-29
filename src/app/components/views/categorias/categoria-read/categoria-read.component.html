@@ -3,7 +3,10 @@
         <h1>Categorias</h1>
     </div>
 
-    <button class="mat-elevation-z8" mat-stroked-button color="primary">Nova Categoria</button>
+    <button class="mat-elevation-z8" mat-stroked-button color="primary"
+    (click)="navegarParaCategoriaCreate()">
+      Nova Categoria
+    </button>
 
     <table mat-table [dataSource]="categorias" class="mat-elevation-z8" style="width: 100%;">
         <!-- Position Column -->

@@ -15,10 +15,10 @@ import {MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
 import { HomeComponent } from './components/views/home/home.component';
 import {MatCardModule} from '@angular/material/card';
-import { CategoriasComponent } from './components/views/categorias/categorias.component';
 import { CategoriaReadComponent } from './components/views/categorias/categoria-read/categoria-read.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
+import { CategoriaCreateComponent } from './components/views/categorias/categoria-create/categoria-create.component';
 
 @NgModule({
   declarations: [
@@ -27,8 +27,8 @@ import {MatButtonModule} from '@angular/material/button';
     FooterComponent,
     NavComponent,
     HomeComponent,
-    CategoriasComponent,
-    CategoriaReadComponent
+    CategoriaReadComponent,
+    CategoriaCreateComponent
   ],
   imports: [
     BrowserModule,
@@ -39,8 +39,8 @@ import {MatButtonModule} from '@angular/material/button';
     MatListModule,
     MatIconModule,
     MatCardModule,
-    MatTableModule
-    ,HttpClientModule,
+    MatTableModule,
+    HttpClientModule,
     MatButtonModule
   ],
   providers: [],
