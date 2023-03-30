@@ -4,6 +4,7 @@ import { CategoriaCreateComponent } from './components/views/categorias/categori
 import { CategoriaReadComponent } from './components/views/categorias/categoria-read/categoria-read.component';
 import { HomeComponent } from './components/views/home/home.component';
 
+
 const routes: Routes = [
   {
     path:'',
