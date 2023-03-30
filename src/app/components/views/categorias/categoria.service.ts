@@ -16,7 +16,12 @@ export class CategoriaService {
 
    findAll():Observable<Categoria[]> {
       const url =  `${this.baseUrl}/categorias`
-      return this.htt.get<Categoria[]>(url)
+      return this.htt.get<Categoria[]>(url);
+   }
+
+   findById(id: String): Observable<Categoria>{
+      const url =  `${this.baseUrl}/categorias/${id}`
+      return this.htt.get<Categoria>(url);
    }
 
    create(categoria:Categoria):Observable<Categoria>{
