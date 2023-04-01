@@ -4,6 +4,7 @@
   <mat-form-field class="form">
     <mat-label>Titulo</mat-label>
     <input
+      [(ngModel)] = "livro.titulo"
       type="text"
       matInput
       [formControl]="titulo"
@@ -19,21 +20,23 @@
   <mat-form-field class="form">
     <mat-label>Nome do Autor</mat-label>
     <input
+     [(ngModel)] = "livro.nomeAutor"
       type="text"
       matInput
-      [formControl]="nome_autor"
+      [formControl]="nomeAutor"
       required
-      name="nome_autor"
+      name="nomeAutor"
       placeholder="Ex. Espírito Santo"
       maxlength="100"
     />
 
-    <mat-error *ngIf="nome_autor.invalid">{{ getMessage() }}</mat-error>
+    <mat-error *ngIf="nomeAutor.invalid">{{ getMessage() }}</mat-error>
   </mat-form-field>
 
   <mat-form-field class="form">
     <mat-label>Texto</mat-label>
     <textarea
+      [(ngModel)] = "livro.texto"
       type="text"
       matInput
       [formControl]="texto"
@@ -50,6 +53,7 @@
   <div class="buttons">
     <button 
       [disabled]="getMessage()"
+      (click)="create()"
     class="mat-elevation-z8" mat-stroked-button color="primary">
       Criar
     </button>
