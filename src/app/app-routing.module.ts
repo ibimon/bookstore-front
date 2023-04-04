@@ -8,6 +8,7 @@ import { HomeComponent } from "./components/views/home/home.component";
 import { LivroReadAllComponent } from "./components/views/livros/livro-read-all/livro-read-all.component";
 import { LivroCreateComponent } from "./components/views/livros/livro-create/livro-create.component";
 import { LivroUpdateComponent } from "./components/views/livros/livro-update/livro-update.component";
+import { LivroDeleteComponent } from "./components/views/livros/livro-delete/livro-delete.component";
 
 const routes: Routes = [
   {
@@ -29,20 +30,24 @@ const routes: Routes = [
   },
   {
     path: "categorias/update/:id",
-    component: CategoriaUpdateComponent
+    component: CategoriaUpdateComponent,
   },
   {
     path: "categorias/:id_cat/livros",
-    component: LivroReadAllComponent
+    component: LivroReadAllComponent,
   },
   {
     path: "categorias/:id_cat/livros/create",
-    component: LivroCreateComponent
-  }
-  , {
+    component: LivroCreateComponent,
+  },
+  {
     path: "categorias/:id_cat/livros/:id/update",
-    component: LivroUpdateComponent
-  }
+    component: LivroUpdateComponent,
+  },
+  {
+    path: "categorias/:id_cat/livros/:id/delete",
+    component: LivroDeleteComponent,
+  },
 ];
 
 @NgModule({
