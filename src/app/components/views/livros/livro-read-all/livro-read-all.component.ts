@@ -12,7 +12,7 @@ export class LivroReadAllComponent {
   displayedColumns: string[] = ['id', 'titulo', 'livros','acoes'];
   id_cat : String = '';
   livros: Livro[] = [];
-
+  
   constructor(private service: LivroService, 
     private router:Router,
     private route:ActivatedRoute){}
@@ -28,6 +28,8 @@ export class LivroReadAllComponent {
       console.log(this.livros);
     });
   }
+
+
   navegarParaCriarLivro():void{
     this.router.navigate([`categorias/${this.id_cat}/livros/create`]);
   }

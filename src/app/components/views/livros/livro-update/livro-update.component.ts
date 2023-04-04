@@ -5,9 +5,9 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { Livro } from "../livro.model";
 
 @Component({
-  selector: 'app-livro-update',
-  templateUrl: './livro-update.component.html',
-  styleUrls: ['./livro-update.component.css']
+  selector: "app-livro-update",
+  templateUrl: "./livro-update.component.html",
+  styleUrls: ["./livro-update.component.css"],
 })
 export class LivroUpdateComponent {
   id_cat: String = "";
@@ -31,11 +31,35 @@ export class LivroUpdateComponent {
 
   ngOnInit(): void {
     this.id_cat = this.route.snapshot.paramMap.get("id_cat")!;
-    this.livro.id = this.route.snapshot.paramMap.get("id")!;    
+    this.livro.id = this.route.snapshot.paramMap.get("id")!;
+    this.findById();
   }
 
-  cancel(): void{
+  findById(): void {
+    this.service.findById(this.livro.id!).subscribe((resposta) => {
+      this.livro.id = resposta.id;
+      this.livro.titulo = resposta.titulo;
+      this.livro.nomeAutor = resposta.nomeAutor;
+      this.livro.texto = resposta.texto;
+    });
+  }
+
+  cancel(): void {
     this.router.navigate([`categorias/${this.id_cat}/livros`]);
+  }
+
+  update(): void {
+    this.service.update(this.livro).subscribe({
+      next: () => {
+        this.router.navigate([`categorias/${this.id_cat}/livros`]);
+        this.service.mensagem("Livro alterado com sucesso!");
+      },
+      error: (erro) => {
+        this.router.navigate([`categorias/${this.id_cat}/livros`]);
+        this.service.mensagem("Erro ao altera novo livro, tente depois!");
+        console.log(erro);
+      },
+    });
   }
 
   getMessage() {
