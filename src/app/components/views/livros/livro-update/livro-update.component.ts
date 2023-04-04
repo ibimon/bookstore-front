@@ -5,11 +5,11 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { Livro } from "../livro.model";
 
 @Component({
-  selector: "app-livro-create",
-  templateUrl: "./livro-create.component.html",
-  styleUrls: ["./livro-create.component.css"],
+  selector: 'app-livro-update',
+  templateUrl: './livro-update.component.html',
+  styleUrls: ['./livro-update.component.css']
 })
-export class LivroCreateComponent implements OnInit {
+export class LivroUpdateComponent {
   id_cat: String = "";
 
   livro: Livro = {
@@ -31,22 +31,7 @@ export class LivroCreateComponent implements OnInit {
 
   ngOnInit(): void {
     this.id_cat = this.route.snapshot.paramMap.get("id_cat")!;
-  }
-
-  create(): void {
-    this.service.create(this.livro, this.id_cat).subscribe(
-      {
-        next:() =>{
-          this.router.navigate([`categorias/${this.id_cat}/livros`]);
-          this.service.mensagem("Livro criado com sucesso!");
-        },
-        error: (erro) => {
-          this.router.navigate([`categorias/${this.id_cat}/livros`]);
-          this.service.mensagem("Erro ao criar novo livro, tente depois!");
-          console.log(erro);
-        }
-      }
-    );
+    this.livro.id = this.route.snapshot.paramMap.get("id")!;    
   }
 
   cancel(): void{
